@@ -1,0 +1,34 @@
+<div class="toolbar" role="banner">
+    
+    <span class="title" [routerLink]="['']"><img src='https://img.icons8.com/ios/2x/project-management.png' alt="image"> Idea.go</span>
+      <div class="menu">
+        <button mat-button [matMenuTriggerFor]="menu">Projects</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/projects']">Show</button>
+          <button mat-menu-item [routerLink]="['/projects']">Add</button>
+          <button mat-menu-item [routerLink]="['/projects']">Edit</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menu">Tasks</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/tasks']">Show</button>
+          <button mat-menu-item [routerLink]="['/tasks']">Add</button>
+          <button mat-menu-item [routerLink]="['/tasks']">Edit</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menu">Team</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/teams']">Show</button>
+          <button mat-menu-item [routerLink]="['/teams']">Add</button>
+          <button mat-menu-item [routerLink]="['/teams']">Edit</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menu">Users</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item [routerLink]="['/users']">Show</button>
+          <button mat-menu-item [routerLink]="['/users']">Add</button>
+          <button mat-menu-item [routerLink]="['/users']">Edit</button>
+        </mat-menu>
+      </div>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
