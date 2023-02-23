@@ -16,6 +16,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
     imports: [
@@ -35,11 +36,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatStepperModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatDividerModule
     ],
     exports: [
         BrowserModule,
-        MatMenuModule,
         BrowserAnimationsModule,
         MatTableModule,
         MatPaginatorModule,
