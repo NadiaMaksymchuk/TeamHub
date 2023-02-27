@@ -1,0 +1,101 @@
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Edit user</h2>
+      <h5>Please fill in all fields</h5>
+      <mat-card>
+        <mat-card-content>
+          <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <form [formGroup]="userForm">
+              <mat-step>
+                <ng-template matStepLabel>Fill out your user No.</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>No.</mat-label>
+                  <input matInput [(ngModel)]="id" placeholder="User No." formControlName="userId" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext (click)="autocomplete()">Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Fill out first name</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedUser.firstName" placeholder="First name" formControlName="firstName"
+                    required value="{{oldUser.firstName}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Fill out last name</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedUser.lastName" placeholder="Last name" formControlName="lastName"
+                    required value="{{oldUser.lastName}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Fill out email</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedUser.email" placeholder="email" formControlName="email"
+                    required value="{{oldUser.email}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+
+              
+              <mat-step label="Fill out birthday">
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a birthday</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="editedUser.birthDay" formControlName="birthday"
+                    required value="{{oldUser.birthDay}}">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Fill out team id">
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a team id</mat-label>
+                  <input matInput placeholder="Team id" required [(ngModel)]="editedUser.teamId"
+                    formControlName="teamId">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext (click)="edit()">Next</button>
+                </div>
+              </mat-step>
+            
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button style="width: 20%;
+          height: 30px;
+          background-color: 	#999999;
+          border-color: #999999" (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
+            </form>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>

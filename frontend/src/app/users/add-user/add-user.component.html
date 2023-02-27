@@ -1,0 +1,37 @@
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Add user</h2>
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="newUser.firstName" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="newUser.lastName" required>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="newUser.email" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a birthday</mat-label>
+            <input matInput [matDatepicker]="picker1" [(ngModel)]="newUser.birthDay" required>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>No team</mat-label>
+            <input matInput [(ngModel)]="newUser.teamId">
+          </mat-form-field>
+          <div class="actions">
+            <button mat-raised-button (click)="add()">Submit</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
