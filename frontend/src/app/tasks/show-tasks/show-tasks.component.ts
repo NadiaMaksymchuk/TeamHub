@@ -13,11 +13,10 @@ import { TasksService } from 'src/app/services/tasks.service';
 })
 export class ShowTasksComponent implements OnInit, OnDestroy{
   public tasks: Task[] = [];
-  displayedColumns: string[] = ['position', 'name', 'state','deadline', 'createdAt', 'finishedAt'];
+  displayedColumns: string[] = ['position', 'name', 'state','performerName', 'createdAt', 'finishedAt'];
   public loading = false;
   private unsubscribe$ = new Subject<void>();
   dataSource: any;
-  projects: Task[];
 
   constructor(
     private service:TasksService,
@@ -43,7 +42,7 @@ export class ShowTasksComponent implements OnInit, OnDestroy{
             .subscribe(
                 (resp) => {
                     this.loading = false;
-                    this.projects = resp.body;
+                    this.tasks = resp.body;
                     this.dataSource = new MatTableDataSource<Task>(this.tasks);
                     this.dataSource.paginator = this.paginator;
                 },

@@ -1,1 +1,109 @@
-<p>update-tasks works!</p>
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Edit task</h2>
+      <h5>Please fill in all fields</h5>
+      <mat-card>
+        <mat-card-content>
+          <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <form [formGroup]="taskForm">
+              <mat-step>
+                <ng-template matStepLabel>Fill out your task No.</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>No.</mat-label>
+                  <input matInput [(ngModel)]="id" placeholder="Task No." formControlName="taskId" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext (click)="autocomplete()">Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Fill out your task name</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedTask.name" placeholder="Task name" formControlName="name"
+                    required value="{{oldTask.name}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Fill out your task name</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedTask.state" placeholder="Task name" formControlName="state"
+                    required value="{{oldTask.state}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+
+              <mat-step label="Fill out description">
+                <mat-form-field appearance="fill">
+                  <mat-label>Description</mat-label>
+                  <textarea matInput placeholder="Description your task" required
+                    [(ngModel)]="editedTask.description" formControlName="description" required
+                    value="{{oldTask.description}}"></textarea>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Fill out finishedAt">
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker" [(ngModel)]="editedTask.finishedAt" formControlName="finishedAt"
+                    required value="{{oldTask.finishedAt}}">
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Fill out project id">
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a project id</mat-label>
+                  <input matInput placeholder="Project name" required [(ngModel)]="editedTask.projectId"
+                    formControlName="projectId">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Fill out performer id">
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a performer id</mat-label>
+                  <input matInput placeholder="Author id" [(ngModel)]="editedTask.performerId " formControlName="performerId"
+                    required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext (click)="edit()">Next</button>
+                </div>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button style="width: 20%;
+          height: 30px;
+          background-color: 	#999999;
+          border-color: #999999" (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
+            </form>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
