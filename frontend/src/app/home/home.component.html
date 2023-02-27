@@ -1,18 +1,19 @@
 <div class="toolbar" role="banner">
     
-    <span class="title" ><img src='https://img.icons8.com/ios/2x/project-management.png' alt="image"> Idea.go</span>
+    <span class="title" [routerLink]="['']">
+      <img src='https://img.icons8.com/ios/2x/project-management.png' alt="image"> Idea.go</span>
       <div class="menu">
         <button mat-button [matMenuTriggerFor]="menu">Projects</button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item >Show</button>
-          <button mat-menu-item >Add</button>
-          <button mat-menu-item >Edit</button>
+          <button mat-menu-item [routerLink]="['/projects/show']">Show</button>
+          <button mat-menu-item [routerLink]="['/projects/add']">Add</button>
+          <button mat-menu-item [routerLink]="['/projects/update']">Edit</button>
         </mat-menu>
-        <button mat-button [matMenuTriggerFor]="menu">Tasks</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item >Show</button>
-          <button mat-menu-item >Add</button>
-          <button mat-menu-item >Edit</button>
+        <button mat-button [matMenuTriggerFor]="taskmenu">Tasks</button>
+        <mat-menu #taskmenu="matMenu">
+          <button mat-menu-item [routerLink]="['/tasks/show']">Show</button>
+          <button mat-menu-item [routerLink]="['/tasks/add']">Add</button>
+          <button mat-menu-item [routerLink]="['/tasks/update']">Edit</button>
         </mat-menu>
         <button mat-button [matMenuTriggerFor]="menu">Team</button>
         <mat-menu #menu="matMenu">

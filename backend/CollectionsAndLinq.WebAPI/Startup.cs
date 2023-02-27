@@ -54,6 +54,13 @@ namespace CollectionsAndLinq.WebAPI
             {
                 app.UseHsts();
             }
+
+            app.UseCors(builder => builder
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+                .WithOrigins("http://localhost:4200"));
+
             app.UseHttpsRedirection();
             app.UseMvc();
 

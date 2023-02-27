@@ -1,0 +1,94 @@
+<mat-card class="content">
+  <mat-card-content>
+    <h2>Edit project</h2>
+    <h5>Please fill in all fields</h5>
+    <mat-card>
+      <mat-card-content>
+        <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+          <form [formGroup]="projectForm">
+            <mat-step>
+              <ng-template matStepLabel>Fill out your project No.</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>No.</mat-label>
+                <input matInput [(ngModel)]="id" placeholder="Project No." formControlName="projectId" required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperNext (click)="autocomplete()">Next</button>
+              </div>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Fill out your project name</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="editedProject.name" placeholder="Project name" formControlName="name"
+                  required value="{{oldProjects.name}}">
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Fill out description">
+              <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput placeholder="Description your project" required
+                  [(ngModel)]="editedProject.description" formControlName="description" required
+                  value="{{oldProjects.description}}"></textarea>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Fill out deadline">
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="editedProject.deadline" formControlName="deadline"
+                  required value="{{oldProjects.deadline}}">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Fill out team id">
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a team id</mat-label>
+                <input matInput placeholder="Project name" required [(ngModel)]="editedProject.teamId"
+                  formControlName="teamId">
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </mat-step>
+            <mat-step label="Fill out author id">
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a author id</mat-label>
+                <input matInput placeholder="Author id" [(ngModel)]="editedProject.authorId " formControlName="authorId"
+                  required>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext (click)="editProject()">Next</button>
+              </div>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Done</ng-template>
+              <p>You are now done.</p>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button style="width: 20%;
+        height: 30px;
+        background-color: 	#999999;
+        border-color: #999999" (click)="stepper.reset()">Reset</button>
+              </div>
+            </mat-step>
+          </form>
+        </mat-stepper>
+      </mat-card-content>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

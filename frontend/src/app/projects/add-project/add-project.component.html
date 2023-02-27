@@ -1,0 +1,38 @@
+
+<mat-card class="content">
+    <mat-card-content>
+        <h2>Add project</h2>
+        <mat-card>
+            <mat-card-content>
+                <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [(ngModel)]="newProject.name" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput [(ngModel)]="newProject.description" required></textarea>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Choose a deadline</mat-label>
+                  <input matInput [matDatepicker]="picker1" [(ngModel)]="newProject.deadline" required>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>No author</mat-label>
+                <input matInput [(ngModel)]="newProject.authorId" required>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>No team</mat-label>
+                <input matInput [(ngModel)]="newProject.teamId">
+              </mat-form-field>
+                <div class="actions">
+                    <button mat-raised-button (click)="addProject(); ">Submit</button>
+                  </div>
+            </mat-card-content>
+        </mat-card>
+        </mat-card-content>
+</mat-card>
+

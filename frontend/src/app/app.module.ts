@@ -12,12 +12,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponentsModule } from './common/material-components.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AddProjectComponent } from './projects/add-project/add-project.component';
+import { UpdateProjectComponent } from './projects/update-project/update-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MainPageComponent
+    MainPageComponent,
+    AddProjectComponent,
+    UpdateProjectComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import {MatDividerModule} from '@angular/material/divider';
     BrowserAnimationsModule,
     MaterialComponentsModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatPaginatorModule
+  ],
+  exports: [
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

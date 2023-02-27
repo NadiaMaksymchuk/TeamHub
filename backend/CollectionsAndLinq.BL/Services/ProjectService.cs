@@ -100,7 +100,10 @@ namespace CollectionsAndLinq.BL.Services
 
         private async Task<Project> CheckExistingProject(int projectId)
         {
-            var project = await _context.Projects.FirstOrDefaultAsync(x => x.Id == projectId);
+            var project = await _context.Projects
+                                        .Include(project => project.Autor)
+                                        .Include(project => project.Team)
+                                        .FirstOrDefaultAsync(x => x.Id == projectId);
 
             if (project is null)
             {

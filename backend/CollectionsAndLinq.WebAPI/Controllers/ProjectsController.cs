@@ -44,7 +44,7 @@ namespace CollectionsAndLinq.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<ProjectDto>> GetById(int id)
         {
             return Ok(await _projectService.GetById(id));
