@@ -46,7 +46,7 @@ namespace CollectionsAndLinq.WebAPI.Controllers
             return NoContent();
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<UserDto>> GetById(int id)
         {
             return Ok(await _userService.GetById(id));

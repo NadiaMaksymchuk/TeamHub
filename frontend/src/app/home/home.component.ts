@@ -7,9 +7,4 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
-
-    gotoItems() {
-      this.router.navigate(['/tasks/show']);
-    }
 }

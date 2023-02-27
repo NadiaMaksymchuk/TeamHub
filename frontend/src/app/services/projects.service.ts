@@ -12,8 +12,7 @@ export class ProjectsService {
 
   constructor(private httpService: HttpInternalService) { }
 
-  getProjects(){
-    console.log(this.httpService.getFullRequest<Project[]>(`${this.routePrefix}`));
+  getProjects() {
     return this.httpService.getFullRequest<Project[]>(`${this.routePrefix}`);
   }
 

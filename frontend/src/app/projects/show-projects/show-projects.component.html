@@ -1,51 +1,50 @@
 <div *ngIf="loadingProjects" class="mat-spinner-wrapper">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
 </div>
-    <h2>Show all projects</h2>
-    <div class="show-table">
-      <table mat-table [dataSource]="dataSource">
-  
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let project"> {{project.id}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let project"> {{project.name}} </td>
-        </ng-container>
+<h2>Show all projects</h2>
+<div class="show-table">
+  <table mat-table [dataSource]="dataSource">
 
-        <ng-container matColumnDef="authorName">
-          <th mat-header-cell *matHeaderCellDef> Author`s name </th>
-          <td mat-cell *matCellDef="let project"> {{project.autor.firstName}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef> Author`s Email </th>
-          <td mat-cell *matCellDef="let project"> {{project.autor.email}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="teamName">
-          <th mat-header-cell *matHeaderCellDef> Team`s name </th>
-          <td mat-cell *matCellDef="let project"> {{project.team.name}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="deadline">
-          <th mat-header-cell *matHeaderCellDef> Deadline </th>
-          <td mat-cell *matCellDef="let project"> {{project.deadline | date:"d MMMM y"}} </td>
-        </ng-container>
-  
-        <ng-container matColumnDef="createdAt">
-          <th mat-header-cell *matHeaderCellDef> CreatedAt </th>
-          <td mat-cell *matCellDef="let project"> {{project.createdAt | date:"d MMMM y"}} </td>
-        </ng-container>
-  
-       
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator
-                [pageSizeOptions]="[8, 10, 25, 35]" showFirstLastButton>
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let project"> {{project.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let project"> {{project.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="authorName">
+      <th mat-header-cell *matHeaderCellDef> Author`s name </th>
+      <td mat-cell *matCellDef="let project"> {{project.autor.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Author`s Email </th>
+      <td mat-cell *matCellDef="let project"> {{project.autor.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teamName">
+      <th mat-header-cell *matHeaderCellDef> Team`s name </th>
+      <td mat-cell *matCellDef="let project"> {{project.team.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deadline">
+      <th mat-header-cell *matHeaderCellDef> Deadline </th>
+      <td mat-cell *matCellDef="let project"> {{project.deadline | date:"d MMMM y"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> CreatedAt </th>
+      <td mat-cell *matCellDef="let project"> {{project.createdAt | date:"d MMMM y"}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[8, 10, 25, 35]" showFirstLastButton>
   </mat-paginator>
-    </div>
+</div>

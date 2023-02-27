@@ -1,8 +1,8 @@
-export interface User {
+export interface UpdateUser {
     id: number;
+    teamId: number | null;
     firstName: string;
     lastName: string;
     email: string;
-    registeredAt: Date;
     birthDay: Date;
 }

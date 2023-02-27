@@ -1,0 +1,17 @@
+<p>add-team works!</p>
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Add team</h2>
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="newTeam.name" required>
+          </mat-form-field>
+          <div class="actions">
+            <button mat-raised-button (click)="addTeam(); ">Submit</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>

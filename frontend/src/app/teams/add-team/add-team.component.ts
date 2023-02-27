@@ -1,22 +1,23 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs/internal/Subject';
-import { NewProject } from 'src/app/models/new-project';
+import { Subject } from 'rxjs';
+import { NewTeam } from 'src/app/models/new-team';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
+import { TeamsService } from 'src/app/services/teams.service';
 
 @Component({
-  selector: 'app-add-project',
-  templateUrl: './add-project.component.html',
-  styleUrls: ['./add-project.component.sass']
+  selector: 'app-add-team',
+  templateUrl: './add-team.component.html',
+  styleUrls: ['./add-team.component.sass']
 })
-export class AddProjectComponent implements OnDestroy{
-  public newProject: NewProject = {} as NewProject;
+export class AddTeamComponent implements OnDestroy{
+  public newTeam: NewTeam = {} as NewTeam;
   
   private unsubscribe$ = new Subject<void>();
 
   constructor(
-    private service:ProjectsService,
+    private service:TeamsService,
     private snackBarService: SnackBarService,
     private router: Router) 
   {}
@@ -26,9 +27,9 @@ export class AddProjectComponent implements OnDestroy{
     this.unsubscribe$.complete();
   }
 
-  public addProject() {
+  public addTeam() {
     this.service
-    .addProject(this.newProject)
+    .add(this.newTeam)
     .subscribe(
       (responce) => {
         this.snackBarService.showMessage('Successfully added');
@@ -45,4 +46,3 @@ export class AddProjectComponent implements OnDestroy{
       this.router.navigate(['/']);
     }
 }
-

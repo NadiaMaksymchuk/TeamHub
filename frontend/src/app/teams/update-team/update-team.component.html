@@ -1,0 +1,47 @@
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Edit team</h2>
+      <h5>Please fill in all fields</h5>
+      <mat-card>
+        <mat-card-content>
+          <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+            <form [formGroup]="teamForm">
+              <mat-step>
+                <ng-template matStepLabel>Fill out your team No.</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>No.</mat-label>
+                  <input matInput [(ngModel)]="id" placeholder="Team No." formControlName="teamId" required>
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperNext (click)="autocomplete()">Next</button>
+                </div>
+              </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Fill out your team name</ng-template>
+                <mat-form-field appearance="fill">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="editedTeam.name" placeholder="Team name" formControlName="name"
+                    required value="{{oldTeam.name}}">
+                </mat-form-field>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button matStepperNext (click)="edit()">Next</button>
+                </div>
+            </mat-step>
+              <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <p>You are now done.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button style="width: 20%;
+          height: 30px;
+          background-color: 	#999999;
+          border-color: #999999" (click)="stepper.reset()">Reset</button>
+                </div>
+              </mat-step>
+            </form>
+          </mat-stepper>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
