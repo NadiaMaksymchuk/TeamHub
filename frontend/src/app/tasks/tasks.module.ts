@@ -6,6 +6,7 @@ import { AddTasksComponent } from './add-tasks/add-tasks.component';
 import { UpdateTasksComponent } from './update-tasks/update-tasks.component';
 import { MaterialComponentsModule } from '../common/material-components.module';
 import { DirtyCheckGuard } from '../guards/dirty-check.guard';
+import { TaskDirective } from '../directives/task.directive';
 
 const AppRoutes: Routes = [
   { path: 'tasks/show', component:  ShowTasksComponent},
@@ -21,7 +22,8 @@ const AppRoutes: Routes = [
   declarations: [
     ShowTasksComponent,
     AddTasksComponent,
-    UpdateTasksComponent
+    UpdateTasksComponent,
+    TaskDirective
   ],
   imports: [
     CommonModule,
