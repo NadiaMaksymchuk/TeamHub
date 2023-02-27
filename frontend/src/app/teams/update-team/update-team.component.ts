@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { DirtyComponent } from 'src/app/models/dirty-component';
 import { NewTeam } from 'src/app/models/new-team';
@@ -28,7 +29,8 @@ export class UpdateTeamComponent implements OnDestroy, OnInit, DirtyComponent {
 
   constructor(
     private service:TeamsService,
-    private snackBarService: SnackBarService) 
+    private snackBarService: SnackBarService,
+    private router: Router) 
   {}
 
   ngOnInit(): void {
@@ -60,6 +62,7 @@ export class UpdateTeamComponent implements OnDestroy, OnInit, DirtyComponent {
     .subscribe(
       (responce) => {
         this.snackBarService.showMessage('Successfully updated');
+        this.goToMainePage();
     },
     (error) => this.snackBarService.showMessage(error.message))  
   }
@@ -71,6 +74,11 @@ export class UpdateTeamComponent implements OnDestroy, OnInit, DirtyComponent {
       (responce) => {
           this.oldTeam = responce.body;
     },
-    (error) => this.snackBarService.showMessage("Enter id of existed project!"))
+    (error) => this.snackBarService.showMessage("Enter id of existed team!"))
+  }
+
+  private goToMainePage() {
+    this.isDirty = false;
+    this.router.navigate(['/']);
   }
 }

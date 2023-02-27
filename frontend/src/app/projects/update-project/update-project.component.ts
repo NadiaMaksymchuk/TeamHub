@@ -5,8 +5,9 @@ import { Project } from 'src/app/models/project';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
 import { UpdateProject } from 'src/app/models/update-project';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DirtyComponent } from 'src/app/models/dirty-component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-project',
@@ -29,7 +30,7 @@ export class UpdateProjectComponent implements OnDestroy, OnInit, DirtyComponent
   constructor(
     private service:ProjectsService,
     private snackBarService: SnackBarService,
-    private fb: FormBuilder) 
+    private router: Router) 
   {}
 
   ngOnInit(): void {
@@ -68,6 +69,7 @@ export class UpdateProjectComponent implements OnDestroy, OnInit, DirtyComponent
     .subscribe(
       (responce) => {
         this.snackBarService.showMessage('Successfully updated');
+        this.goToMainePage();
     },
     (error) => this.snackBarService.showMessage(error.message))  
   }
@@ -81,6 +83,11 @@ export class UpdateProjectComponent implements OnDestroy, OnInit, DirtyComponent
           console.log(this.oldProjects)
     },
     (error) => this.snackBarService.showMessage("Enter id of existed project!"))
+  }
+
+  private goToMainePage() {
+    this.isDirty = false;
+    this.router.navigate(['/']);
   }
 }
 
