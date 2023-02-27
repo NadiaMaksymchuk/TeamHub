@@ -1,1 +1,30 @@
-<p>add-tasks works!</p>
+<mat-card class="content">
+    <mat-card-content>
+      <h2>Add task</h2>
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="newTask.name" required>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="newTask.description" required></textarea>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>No project</mat-label>
+            <input matInput [(ngModel)]="newTask.projectId" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>No performer</mat-label>
+            <input matInput [(ngModel)]="newTask.performerId">
+          </mat-form-field>
+          <div class="actions">
+            <button mat-raised-button (click)="add(); ">Submit</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
